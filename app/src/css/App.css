@@ -1,0 +1,7 @@
+.box:hover {
+  background-color: hsl(171, 100%, 41%);
+}
+
+.text-stroke {
+  text-decoration: line-through;
+}

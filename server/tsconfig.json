@@ -1,0 +1,15 @@
+{
+  "include": ["src/**/*.ts", "api/**/*.ts"],
+  "exclude": ["node_modules", ".vscode"],
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
