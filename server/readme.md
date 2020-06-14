@@ -1,4 +1,4 @@
-## Get up MongoDB usgin Docker
+## MongoDB with Docker
 
 ```bash
 docker run -d --network bridge -p 27017:27017 \
