@@ -1,7 +1,7 @@
 export enum TaskPriority {
-  Hight,
-  Medium,
-  Low,
+  Hight = "Hight",
+  Medium = "Medium",
+  Low = "Low",
 }
 
 export default interface Task {

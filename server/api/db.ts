@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import path from "path";
 
+mongoose.Promise = global.Promise;
+
 const result = dotenv.config({
   path: path.join(path.dirname(__dirname), ".env"),
 });

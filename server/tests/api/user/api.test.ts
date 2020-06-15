@@ -1,7 +1,7 @@
-import app from "../../../../api/app";
+import app from "../../../api/app";
 import request from "supertest";
 import faker from "faker";
-import db from "../../../../api/db";
+import db from "../../../api/db";
 
 faker.locale = "en_US";
 

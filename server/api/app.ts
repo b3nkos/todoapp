@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 const bodyParser = require("body-parser");
 import userRouter from "./user/routes";
+import taskRouter from "./task/routes";
 
 const app: Express = express();
 
@@ -11,5 +12,6 @@ app.get("/", (request: Request, response: Response) => {
 });
 
 app.use("/api/user", userRouter);
+app.use("/api/task", taskRouter);
 
 export default app;

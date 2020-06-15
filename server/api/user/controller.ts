@@ -1,16 +1,23 @@
-import CreateNewUserUseCase from "../../src/user/application/new.usecase";
-import UserInMemoryRepository from "../../src/user/infrastructure/inmemory.repository";
+import UserCreatorService from "../../src/user/application/creator.service";
+import UserInMemoryRepository from "../../src/user/infrastructure/custom/repository";
 import User from "../../src/user/domain/user";
-import MongoDBUser from "../../src/user/infrastructure/mongodb/user/user";
+import MongoDBUser from "../../src/user/infrastructure/mongodb/user";
 import NewUserRequest from "../../src/user/domain/request";
 import NewUserResponse from "../../src/user/domain/response";
-import MongoDBUserRepository from "../../src/user/infrastructure/mongodb/user/repository";
+import MongoDBUserRepository from "../../src/user/infrastructure/mongodb/repository";
+import UserSearcherService from "../../src/user/application/searcher.service";
 
 export default class UserController {
-  private useCase: CreateNewUserUseCase;
+  private creatorService: UserCreatorService;
+  private searcherService: UserSearcherService;
 
   constructor() {
-    this.useCase = new CreateNewUserUseCase(new MongoDBUserRepository());
+    this.searcherService = new UserSearcherService(new MongoDBUserRepository());
+
+    this.creatorService = new UserCreatorService(
+      new MongoDBUserRepository(),
+      this.searcherService
+    );
   }
 
   public async save(
@@ -27,7 +34,9 @@ export default class UserController {
         },
       };
 
-      const response: NewUserResponse = await this.useCase.execute(request);
+      const response: NewUserResponse = await this.creatorService.execute(
+        request
+      );
 
       return response.user;
     } catch (error) {

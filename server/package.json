@@ -8,10 +8,12 @@
     "start:watch": "nodemon",
     "build": "tsc",
     "test": "jest",
-    "test:unit:user": "jest src/tests/unit/user",
-    "test:unit:task": "jest src/tests/unit/task",
-    "test:unit": "jest src/tests/unit",
-    "test:api:user": "jest src/tests/api/user"
+    "test:unit:user": "jest tests/unit/user",
+    "test:unit:task": "jest tests/unit/task",
+    "test:unit": "jest tests/unit",
+    "test:api": "jest tests/api",
+    "test:api:user": "jest tests/api/user",
+    "test:api:task": "jest tests/api/task"
   },
   "keywords": [],
   "author": "",
