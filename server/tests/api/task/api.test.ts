@@ -34,8 +34,6 @@ describe("Test Task api", () => {
 
     const taskCreatedResponse = await request(app).post("/api/task").send(task);
 
-    console.log(taskCreatedResponse.body);
-
     expect(taskCreatedResponse.type).toBe("application/json");
     expect(taskCreatedResponse.status).toBe(201);
     expect(taskCreatedResponse.body.name).toBe(task.name);

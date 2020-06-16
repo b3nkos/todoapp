@@ -31,6 +31,7 @@ export default class UserController {
           name,
           email,
           password,
+          tasks: [],
         },
       };
 

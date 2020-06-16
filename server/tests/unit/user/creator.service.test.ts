@@ -19,6 +19,7 @@ describe("The creation of new user", () => {
         name: "Jon Doe",
         email: "jondoe@gmail.com",
         password: "123456",
+        tasks: [],
       },
     };
 

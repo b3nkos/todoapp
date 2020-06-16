@@ -24,12 +24,11 @@ describe("The creation of a new task", () => {
         name: "Jon Doe",
         email: "jondoe@gmail.com",
         password: "123456",
+        tasks: [],
       },
     };
 
-    const newUserResponse: NewUserResponse = await userCreatorService.execute(
-      newUserRequest
-    );
+    await userCreatorService.execute(newUserRequest);
 
     const taskCreatorService = new CreatorTaskService(
       new TaskInMemoryRepository(),

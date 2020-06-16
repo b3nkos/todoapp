@@ -5,19 +5,19 @@ import UserSearcherService from "../../user/application/searcher.service";
 
 export default class CreatorTaskService {
   private repository: TaskRepository;
-  private finder: UserSearcherService;
+  private userSearcher: UserSearcherService;
 
-  constructor(repository: TaskRepository, finder: UserSearcherService) {
+  constructor(repository: TaskRepository, userSearcher: UserSearcherService) {
     this.repository = repository;
-    this.finder = finder;
+    this.userSearcher = userSearcher;
   }
 
   public async execute(request: NewTaskRequest): Promise<NewTaskResponse> {
     try {
-      const user = await this.finder.execute(request.userEmail);
+      const user = await this.userSearcher.execute(request.userEmail);
 
       if (user === null) {
-        throw new Error(`User with email ${request.userEmail} not found`);
+        throw new Error("The user is requires for tasks attaching");
       }
 
       const task = await this.repository.save(request.task, user);

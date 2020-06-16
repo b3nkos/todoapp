@@ -8,4 +8,5 @@ export default interface Task {
   name: string;
   priority: TaskPriority;
   dueDate: Date;
+  done?: boolean;
 }
